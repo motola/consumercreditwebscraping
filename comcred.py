@@ -41,3 +41,9 @@ for item in soup.findAll('div', {'class': 'rvw-bd'}):
 data = []
 for items in zip(rating, authors, review, date, comment):
     data.append(items)
+
+    with open('output.csv', 'w+', newline = '') as file:
+     writer = csv.writer(file)
+     writer.writerow(['Rating','Authors','review','date','comment'])
+     writer.writerows(data)  
+     print("Operation Completed")
